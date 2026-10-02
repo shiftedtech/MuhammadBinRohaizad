@@ -55,7 +55,7 @@
   .act:hover .ic,.act:focus-visible .ic{background:var(--brand);color:#fff}
   .act.wa .ic{background:#e7f8ee;color:#128c4a}
   .act.wa:hover .ic,.act.wa:focus-visible .ic{background:#128c4a;color:#fff}
-  .save{display:flex;align-items:center;justify-content:center;gap:10px;margin:10px 22px 4px;
+  .save{display:flex;text-decoration:none;align-items:center;justify-content:center;gap:10px;margin:10px 22px 4px;
         background:var(--brand);color:#fff;border:0;border-radius:14px;padding:15px 18px;width:calc(100% - 44px);
         font:inherit;font-weight:700;font-size:16px;cursor:pointer;min-height:52px}
   .save:hover{background:var(--brand-dark)}
@@ -123,10 +123,9 @@
         <span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 0 20 15.3 15.3 0 0 1 0-20z"/></svg></span>Website</a>
     </nav>
 
-    <button class="save" id="saveBtn" type="button">
+    <a class="save" id="saveBtn" href="muhammad-rohaizad.vcf" type="text/vcard">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M19 8v6M22 11h-6"/></svg>
-      Save to Contacts
-    </button>
+      Save to Contacts</a>
 
     <dl id="contact">
       <div class="row">
@@ -166,24 +165,14 @@
     <button class="share" id="shareBtn" type="button">Share this card</button>
     <div>© M Clean Singapore</div>
     <p class="credit">Want a digital card like this?<br>
-      <a href="mailto:hello@shiftedtech.com?subject=Digital%20name%20card%20enquiry">Made by <strong>shiftedtech</strong> &rarr; hello@shiftedtech.com</a></p>
+      <a href="https://www.instagram.com/careershifttechguy/" target="_blank" rel="noopener">DM <strong>@careershifttechguy</strong> on Instagram</a></p>
   </footer>
   <p class="sr" aria-live="polite" id="status"></p>
 </main>
 
 <script>
 (function(){
-  var VCARD = "BEGIN:VCARD\r\nVERSION:3.0\r\nN:;Muhammad bin Rohaizad;;;\r\nFN:Muhammad bin Rohaizad\r\nORG:M Clean\r\nTITLE:Director\r\nTEL;TYPE=WORK,VOICE:+6581880299\r\nEMAIL;TYPE=WORK:inquiry@sgmclean.com\r\nURL:https://sgmclean.com/\r\nADR;TYPE=WORK:;;;Singapore;;;Singapore\r\nNOTE:NEA-licensed professional cleaning\\, island-wide Singapore.\r\nEND:VCARD";
   var status = document.getElementById('status');
-  document.getElementById('saveBtn').addEventListener('click', function(){
-    var blob = new Blob([VCARD + "\r\n"], {type:'text/vcard;charset=utf-8'});
-    var url = URL.createObjectURL(blob);
-    var a = document.createElement('a');
-    a.href = url; a.download = 'Muhammad-bin-Rohaizad-MClean.vcf';
-    document.body.appendChild(a); a.click(); a.remove();
-    setTimeout(function(){ URL.revokeObjectURL(url); }, 1500);
-    status.textContent = 'Contact file downloaded. Open it to add to your contacts.';
-  });
   var shareBtn = document.getElementById('shareBtn');
   shareBtn.addEventListener('click', function(){
     var data = {title:'Muhammad bin Rohaizad · M Clean', text:'Contact card for M Clean Singapore', url: location.href};
